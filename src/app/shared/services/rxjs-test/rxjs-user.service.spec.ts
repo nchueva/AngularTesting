@@ -5,13 +5,9 @@ import { UsersService } from './rxjs-users.service';
 describe('UsersService', () => {
   let usersService: UsersService;
 
-
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        UsersService,
-
-      ],
+      providers: [UsersService],
     });
 
     usersService = TestBed.inject(UsersService);
@@ -25,7 +21,9 @@ describe('UsersService', () => {
     it('should add a user', () => {
       const user: UserInterface = { id: '3', name: 'foo' };
       usersService.addUser(user);
-      expect(usersService.users$.getValue()).toEqual([{ id: '3', name: 'foo' }]);
+      expect(usersService.users$.getValue()).toEqual([
+        { id: '3', name: 'foo' },
+      ]);
     });
   });
 
@@ -36,6 +34,4 @@ describe('UsersService', () => {
       expect(usersService.users$.getValue()).toEqual([]);
     });
   });
-
-
 });
