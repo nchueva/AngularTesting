@@ -47,7 +47,7 @@ describe('PaginationComponent', () => {
     );
 
     let clickedPage: number | undefined;
-    // subscribe to click before triggering a click handler!
+    // subscribe to click emit before triggering a click handler!
     component.pageChangeEvent.subscribe((page) => (clickedPage = page));
 
     // two ways to trigger a click event:

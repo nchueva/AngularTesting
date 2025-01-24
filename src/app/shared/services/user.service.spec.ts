@@ -52,8 +52,10 @@ describe('UsersService', () => {
       jest.spyOn(utilsService, 'pluck');
       usersService.users = [{ id: '3', name: 'foo' }];
       usersService.getUserNames();
-      expect(utilsService.pluck).toHaveBeenCalledWith(usersService.users, 'name')
-
+      expect(utilsService.pluck).toHaveBeenCalledWith(
+        usersService.users,
+        'name'
+      );
     });
   });
 });
