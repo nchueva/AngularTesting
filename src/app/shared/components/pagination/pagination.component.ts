@@ -1,14 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  EventEmitter,
-  input,
-  Input,
-  OnInit,
-  output,
-  Output,
-} from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, input, OnInit, output } from '@angular/core';
 import { UtilsService } from '../../services/utils.service';
 
 @Component({

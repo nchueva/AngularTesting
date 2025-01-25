@@ -23,7 +23,6 @@ describe('MainComponent', () => {
   let fixture: ComponentFixture<MainComponent>;
   let todosService: TodosService;
   const todo1 = { id: '1', text: 'foo', isCompleted: false };
-  const todo2 = { id: '2', text: 'bar', isCompleted: false };
 
   beforeEach(() => {
     TestBed.configureTestingModule({

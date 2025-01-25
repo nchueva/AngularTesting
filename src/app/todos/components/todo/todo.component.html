@@ -19,14 +19,15 @@
       (click)="removeTodo()"
     ></button>
   </div>
-  <ng-container *ngIf="isEditing">
-    <input
-      data-testid="edit"
-      class="edit"
-      #textInput
-      [value]="editingText"
-      (keyup)="changeText($event)"
-      (keyup.enter)="changeTodo()"
-    />
-  </ng-container>
+
+  @if(isEditing) {
+  <input
+    #textInput
+    data-testid="edit"
+    class="edit"
+    [value]="editingText"
+    (keyup)="changeText($event)"
+    (keyup.enter)="changeTodo()"
+  />
+  }
 </li>

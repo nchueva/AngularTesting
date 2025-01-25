@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { ApiService } from './api.service';
 import {
   HttpTestingController,
@@ -30,10 +30,12 @@ describe('ApiService', () => {
   });
 
   describe('getTags', () => {
+    // approach 1
     it('should get tags from http', () => {
       let tags: TagInterface[] | undefined;
 
       apiService.getTags().subscribe((response) => {
+        // if it's not waitForAsync, the expect can't be placed inside of the subscription
         tags = response;
       });
 
@@ -41,7 +43,20 @@ describe('ApiService', () => {
       req.flush([{ id: '1', name: 'foo' }]);
       expect(tags).toEqual([{ id: '1', name: 'foo' }]);
     });
+
+    // approach 2
+    it('should return a list of tags  with waitAsyncFrom', waitForAsync(() => {
+      apiService.getTags().subscribe((res) => {
+        // expect is placed inside the subscription
+        expect(res).toEqual([{ id: '1', name: 'foo' }]);
+      });
+      const request = httpTestingController.expectOne(
+        'http://localhost:3004/tags'
+      );
+      request.flush([{ id: '1', name: 'foo' }]);
+    }));
   });
+
   describe('createTag', () => {
     it('should create a tag', () => {
       let tag: TagInterface | undefined;
