@@ -3,7 +3,7 @@
   data-testid="footer"
   [ngClass]="{ hidden: noTodosClass() }"
 >
-  <span class="todo-count" data-testid="todoCount">
+  <span class="todo-count" data-testid="todoCount" data-cy="todoCount">
     <strong>{{ activeCount() }}</strong> {{ itemsLeftText() }}
   </span>
   <ul class="filters">
@@ -11,6 +11,7 @@
       <span
         [ngClass]="{ selected: filterSig() === filterEnum.all }"
         data-testid="filter"
+        data-cy="filter"
         (click)="changeFilter(filterEnum.all)"
       >
         All
@@ -20,6 +21,7 @@
       <span
         [ngClass]="{ selected: filterSig() === filterEnum.active }"
         data-testid="filter"
+        data-cy="filter"
         (click)="changeFilter(filterEnum.active)"
       >
         Active
@@ -29,6 +31,7 @@
       <span
         [ngClass]="{ selected: filterSig() === filterEnum.completed }"
         data-testid="filter"
+        data-cy="filter"
         (click)="changeFilter(filterEnum.completed)"
       >
         Completed
