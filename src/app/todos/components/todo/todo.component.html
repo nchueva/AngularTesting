@@ -6,7 +6,7 @@
     <input
       class="toggle"
       data-testid="toggle"
-      data-cy="todo-checkbox"
+      data-cy="todoCheckbox"
       type="checkbox"
       [checked]="todo.isCompleted"
       (change)="toggleTodo()"
@@ -19,6 +19,7 @@
     >
     <button
       data-testid="destroy"
+      data-cy="destroy"
       class="destroy"
       (click)="removeTodo()"
     ></button>
@@ -28,6 +29,7 @@
   <input
     #textInput
     data-testid="edit"
+    data-cy="edit"
     class="edit"
     [value]="editingText"
     (keyup)="changeText($event)"
