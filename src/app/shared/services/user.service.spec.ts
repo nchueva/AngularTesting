@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { UserInterface } from '../types/user.interface';
 import { UsersService } from './users.service';
 import { UtilsService } from './utils.service';
-import { pluck } from '../utils/utils';
+import { errorText, pluck } from '../utils/utils';
 
 describe('UsersService', () => {
   let usersService: UsersService;
@@ -56,6 +56,15 @@ describe('UsersService', () => {
         usersService.users,
         'name'
       );
+    });
+  });
+
+  describe('getUserNickname', () => {
+    it('throws an error', () => {
+      const user = { id: '3', name: '' };
+      expect(() => {
+        usersService.getUserNickname(user);
+      }).toThrow(errorText);
     });
   });
 });

@@ -20,4 +20,8 @@ export class UsersService {
   getUserNames(): string[] {
     return this.utilsService.pluck(this.users, 'name');
   }
+
+  getUserNickname(user: UserInterface): string {
+    return this.utilsService.getUserNickname(user.name);
+  }
 }

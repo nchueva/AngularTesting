@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { createUserNickname, errorText } from '../utils/utils';
 
 @Injectable()
 export class UtilsService {
@@ -9,4 +10,11 @@ export class UtilsService {
   pluck = (elements: any[], field: string) => {
     return elements.map((el) => el[field]);
   };
+
+  getUserNickname(userName: string): string {
+    if (!userName.trim()) {
+      throw new Error(errorText);
+    }
+    return createUserNickname(userName);
+  }
 }
