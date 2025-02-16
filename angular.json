@@ -142,6 +142,39 @@
           }
         }
       }
+    },
+    "testing-practice": {
+      "projectType": "library",
+      "root": "projects/testing-practice",
+      "sourceRoot": "projects/testing-practice/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "options": {
+            "project": "projects/testing-practice/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/testing-practice/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/testing-practice/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/testing-practice/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
