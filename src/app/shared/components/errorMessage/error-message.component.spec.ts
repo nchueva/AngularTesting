@@ -32,7 +32,7 @@ describe('ErrorMessageComponent', () => {
   });
 
   it('renders custom text', () => {
-    // update input() signal with a new value
+    // update input() signal with a new value via a parent component
     // 2 ways: 1 - access componentRef and use setInput() or create a new parent component wrapper (@Component({})) inside the describe() and provide there a custom value for the input
     fixture.componentRef.setInput('message', 'New text');
 

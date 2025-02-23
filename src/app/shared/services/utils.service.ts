@@ -12,8 +12,12 @@ export class UtilsService {
   };
 
   getUserNickname(userName: string): string {
-    if (!userName.trim()) {
-      throw new Error(errorText);
+    try {
+      if (!userName.trim()) {
+        throw new Error(errorText);
+      }
+    } catch (e) {
+      console.log(e);
     }
     return createUserNickname(userName);
   }

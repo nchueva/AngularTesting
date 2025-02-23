@@ -93,6 +93,7 @@ describe('TodosService', () => {
         { id: '2', text: 'bar', isCompleted: false },
       ]);
       todosService.toggleTodo('1');
+      // make only one request for the given url
       const req = httpTestingController.expectOne(`${baseUrl}/1`);
       req.flush({ id: '1', text: 'foo', isCompleted: true });
       expect(todosService.todosSig()).toEqual([
@@ -109,6 +110,8 @@ describe('TodosService', () => {
       ]);
       todosService.toggleAll(true);
 
+      // mock all requests that have baseUrl, so it's for many url requests
+      // so the reqs will return an array
       const reqs = httpTestingController.match((request) =>
         request.url.includes(baseUrl)
       );

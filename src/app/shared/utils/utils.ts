@@ -11,7 +11,7 @@ export const errorText = 'there is an empty name';
 export function createUserNickname(userName: string): string {
   let splitArray = userName.trim();
   if (!splitArray) {
-    alert(errorText);
+    // alert(errorText);
     return '';
   }
   const nameArray = splitArray.toLowerCase().split(''); // convert into array
